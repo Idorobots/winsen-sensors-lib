@@ -41,11 +41,11 @@ uint8_t ZE27::calculateChecksum(uint8_t msg[kMessageLength]){
     return checksum;
 }
 
-ZE27::ZE27(HardwareSerial& device) : hw_stream_ (&device) {
+ZE27::ZE27(HardwareSerial& device) : hw_stream_ (&device), sw_stream_(nullptr) {
     setStream();
 }
 
-ZE27::ZE27(SoftwareSerial& device) : sw_stream_(&device) {
+ZE27::ZE27(SoftwareSerial& device) : sw_stream_(&device), hw_stream_(nullptr) {
     setStream();
 }
 
